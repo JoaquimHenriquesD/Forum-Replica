@@ -1,6 +1,8 @@
 const express = require("express");
 const {printSession} = require("../middlewares/index.js");
 const {createUser, deleteUser, readAllUsers, readUser, updateUser} = require("../controllers/users.js");
+const {createForum, deleteForum, readAllForum, readForum, updateForum} = require("../controllers/forums.js");
+
 const {getUserData, logInUser, signUpUser} = require("../controllers/accounts");
 const {isUserAuthenticated, checkUserNotAlreadyAuthenticated, isSuperUser, isUserAsking} = require("../middlewares");
 
@@ -23,6 +25,7 @@ apiRouter.get('/ping', printSession, function (req, res) {
  * @middleware isUserAuthenticated: Seul un utilisateur connecté peut accéder à cet endpoint
  * @middleware isSuperUser: Seul un super utilisateur a le droit d'accéder à cet endpoint
  */
+
 apiRouter.post('/user', isUserAuthenticated, isSuperUser, async (req, res) => {
 
     // On fait un try catch pour intercepter une potentielle erreur
@@ -118,7 +121,15 @@ apiRouter.delete('/session', (req, res) => {
     }
 });
 */
+apiRouter.get('/lesforums', isUserAuthenticated, async (req, res) => {
 
+    // On fait un try catch pour intercepter une potentielle erreur
+    try {
+        res.json(await readAllForum());
+    } catch (e) {
+        res.status(500).send(e.message);
+    }
+});
 /**
  * La route pour que l'utilisateur se connecte
  */

@@ -2,8 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/account": "pages/account.js",
-  "/users": "pages/users.js",
+  "/login": "pages/login.js",
+  "/forums": "pages/forums.js",
   "/": "pages/index.js",
-  "/test": "pages/test.js"
+  "/account": "pages/account.js"
 }

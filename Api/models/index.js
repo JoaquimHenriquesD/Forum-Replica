@@ -90,12 +90,100 @@ const AccountSchema = new Schema(
         }
     });
 
+
+/**
+ * Ce schema sera utilisé pour stocker les comptes d'utilisateurs
+ * @schema : Post
+ */
+const ForumSchema = new Schema(
+    {
+        /**
+         * la référence de l'utilisateur
+         * Utilisé pour faire des .populate pour avoir la donnée de l'utilisateur dans la variable user, on veut faire une référence vers un schema user qui aura juste son identifiant unique MongoDB
+         */
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "user"
+        },
+
+        title: {
+            type: Schema.Types.String,
+            required: true
+        },
+
+        texte: {
+            type: Schema.Types.String,
+            required: true
+        },
+
+        lastUpdate: {
+            type: Date,
+            default: Date.now
+        },
+
+        nbrCom: {
+            
+            type: Schema.Types.Number,
+            default: 0
+            
+        },
+
+        /**
+         * Quand le compte a été crée
+         */
+        createdAt: {
+            type: Date,
+            default: Date.now
+        }
+    });
+
+    /**
+ * Ce schema sera utilisé pour stocker les comptes d'utilisateurs
+ * @schema : Com
+ */
+const ComSchema = new Schema(
+    {
+        /**
+         * la référence de l'utilisateur
+         * Utilisé pour faire des .populate pour avoir la donnée de l'utilisateur dans la variable user, on veut faire une référence vers un schema user qui aura juste son identifiant unique MongoDB
+         */
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "user"
+        },
+
+        /**
+         * Quand le compte a été crée
+         */
+        createdAt: {
+            type: Date,
+            default: Date.now
+        },
+
+        post: {
+            type: Schema.Types.ObjectId,
+            ref: "forum"
+        },
+        texte: {
+            type: Schema.Types.String,
+            required: true
+        },
+
+    });
+
+
 // On exporte le model
 module.exports = {
 
     // On dit que le Model User est créé à partir du Schema UserSchema et le Model sera stocké dans la base de donnée MongoDB sous le nom "user"
     User: mongoose.model('user', UserSchema),
 
-    // On dit que le Model Account est créé à partir du Schema AccountSchema et le Model sera stocké dans la base de donnée MongoDB sous le nom "account"
+    // On dit que le Model User est créé à partir du Schema forum et le Model sera stocké dans la base de donnée MongoDB sous le nom "forum"
+    Forum: mongoose.model('forum', ForumSchema),
+
+    // On dit que le Model User est créé à partir du Schema com et le Model sera stocké dans la base de donnée MongoDB sous le nom "com"
+    Com: mongoose.model('com', ComSchema),
+
+    // On dit que le Model Accont est créé à partir du Schema AccountSchema et le Model sera stocké dans la base de donnée MongoDB sous le nom "account"
     Account: mongoose.model('account', AccountSchema)
 }

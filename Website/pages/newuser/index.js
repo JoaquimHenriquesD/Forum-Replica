@@ -22,4 +22,4 @@ const NewUserPage = ({showErrorMessage, showSuccessMessage}) => {
 }
 
 // On exporte la page
-export default ProtectedRoute(NewUserPage, true);
+export default ProtectedRoute(NewUserPage,false);

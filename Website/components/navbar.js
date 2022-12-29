@@ -83,18 +83,20 @@ export const Navbar = ({router}) => {
 
                         {isUserLogged ?
                             <>
-                                <BulmaNavbar.Item renderAs="span">
-                                    <Link href="/users" passHref>
-                                        Utilisateurs
-                                    </Link>
-                                </BulmaNavbar.Item>
+                            <BulmaNavbar.Item renderAs="span">
+                                <Link href="/forums" passHref>
+                                    Forums
+                                </Link>
+                            </BulmaNavbar.Item>
 
-                            </> : null}
+                            </> : null
+                        }
+
                     </BulmaNavbar.Container>
 
                     <div className="navbar-end">
 
-                        {isSuperUser ?
+                        {isUserLogged ?
                             <>
                                 <BulmaNavbar.Item renderAs="a" className="has-dropdown is-hoverable">
                                     <BulmaNavbar.Link>
@@ -105,12 +107,8 @@ export const Navbar = ({router}) => {
                                             <p style={{color: "#7a7a7a", letterSpacing: ".1em", textTransform: "uppercase"}}>Gestion utilisateurs</p>
                                         </BulmaNavbar.Item>
 
-                                        <BulmaNavbar.Item renderAs="span">
-                                            <Link href="/admin" passHref>
-                                                Page admin
-                                            </Link>
-                                        </BulmaNavbar.Item>
-
+                                        
+                                                             
                                         <BulmaNavbar.Item renderAs="span">
                                             <Link href="/newuser" passHref>
                                                 Créer un utilisateur

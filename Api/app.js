@@ -14,6 +14,7 @@ const {Server} = require("socket.io");
 // On importe les fichiers avec les routes
 const apiRouter = require("./routes/api.js");
 const {signUpUser} = require("./controllers/accounts");
+const {createForum} = require("./controllers/forums");
 const crypto = require("crypto");
 const {isUserAuthenticated, isSuperUser} = require("./middlewares");
 
@@ -91,8 +92,18 @@ mongoose.connect(`mongodb://${mongoDBHost}:27017/maBaseDeDonnee`, options, funct
     }).catch((error) => {
         console.error(`Il y a eu une erreur lors de la création du compte admin: ${error}`);
     });
-});
 
+
+    const testforum = {
+        title: "testforum",
+        texte: "ouiouibaguette"
+    }
+    createForum(testforum).then((result) => {
+        console.log("Le forumtest a été créé: ", result);
+    }).catch((error) => {
+        console.error(`Il y a eu une erreur lors de la création du forumtest: ${error}`);
+    });
+});
 /* ========== PARTIE REDIS ========== */
 
 // On crée l'object qui nous permettra de gérer les sessions avec Redis
