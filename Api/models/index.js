@@ -143,15 +143,7 @@ const ForumSchema = new Schema(
  */
 const ComSchema = new Schema(
     {
-        /**
-         * la référence de l'utilisateur
-         * Utilisé pour faire des .populate pour avoir la donnée de l'utilisateur dans la variable user, on veut faire une référence vers un schema user qui aura juste son identifiant unique MongoDB
-         */
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: "user"
-        },
-
+    
         /**
          * Quand le compte a été crée
          */

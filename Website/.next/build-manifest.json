@@ -30,20 +30,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/account": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/account.js"
-    ],
     "/forums": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/forums.js"
     ],
-    "/login": [
+    "/forums/[forumId]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/login.js"
+      "static/chunks/pages/forums/[forumId].js"
+    ],
+    "/newuser": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/newuser.js"
     ]
   },
   "ampFirstPages": []
