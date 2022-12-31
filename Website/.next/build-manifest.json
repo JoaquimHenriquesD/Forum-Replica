@@ -15,11 +15,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -30,15 +25,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/forums": [
+    "/forumsUser": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/forums.js"
+      "static/chunks/pages/forumsUser.js"
     ],
-    "/forums/[forumId]": [
+    "/forumsUser/[forumId]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/forums/[forumId].js"
+      "static/chunks/pages/forumsUser/[forumId].js"
+    ],
+    "/newforum": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/newforum.js"
     ],
     "/newuser": [
       "static/chunks/webpack.js",

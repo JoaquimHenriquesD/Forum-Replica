@@ -13,7 +13,7 @@ const NewUserPage = ({showErrorMessage, showSuccessMessage}) => {
         <PageWrapper>
             <Columns.Column className="is-8 is-offset-2 tp-notification">
                 <Heading className="is-3">Page pour ajouter un compte utilisateur</Heading>
-                <p className="description">Seul un admin peut ajouter un utilisateur</p>
+                <p className="description"></p>
                 <hr/>
                 <UserCreationForm showErrorMessage={showErrorMessage} showSuccessMessage={showSuccessMessage}/>
             </Columns.Column>

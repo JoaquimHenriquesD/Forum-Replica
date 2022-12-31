@@ -4,16 +4,17 @@ import {CustomPuffLoader} from "../../components/customPuffLoader";
 import {useEffect, useState} from "react";
 import {GoBackUrlButton} from "../../components/goBackUrlButton";
 import {useRouter} from "next/router";
-import {User} from "../../components/users/user";
+import {Forum} from "../../components/forums/forum";
 import axios from "axios";
 import ProtectedRoute from "../../components/protectedRoute";
 
+
 /**
- * La page pour visionner un utilisateur "/users/:userId"
+ * La page pour visionner un forum
  * @param showErrorMessage Fonction pour montrer un message d'erreur
  * @param showSuccessMessage Fonction pour montrer un message de succès
  */
-const UserEditorPage = ({showErrorMessage, showSuccessMessage}) => {
+const ForumEditorPage = ({showErrorMessage, showSuccessMessage}) => {
 
     /**
      * Le router
@@ -23,7 +24,7 @@ const UserEditorPage = ({showErrorMessage, showSuccessMessage}) => {
     /**
      * l'id de l'utilisateur
      */
-    const userId = router.query.userId;
+    const forumId = router.query.forumId;
 
     /**
      * Si la donnée de l'utilisateur a été récupérée
@@ -33,7 +34,7 @@ const UserEditorPage = ({showErrorMessage, showSuccessMessage}) => {
     /**
      * L'utilisateur
      */
-    const [user, setUser] = useState(null);
+    const [forum, setUser] = useState(null);
 
     // On utilise un useEffet pour récupérer l'utilisateur
     useEffect(() => {
@@ -44,7 +45,7 @@ const UserEditorPage = ({showErrorMessage, showSuccessMessage}) => {
 
                 // On essaye de faire la requête pour récupérer l'utilisateur
                 try {
-                    const response = await axios.get(`/api/user/${userId}`);
+                    const response = await axios.get(`/api/forum/${forumId}`);
 
                     // On met à jour l'utilisateur
                     setUser(response.data);
@@ -52,7 +53,7 @@ const UserEditorPage = ({showErrorMessage, showSuccessMessage}) => {
 
                     // Si on attrape une erreur alors on montre un message d'erreur et on met que l'utilisateur est non défini
                 catch (e) {
-                    showErrorMessage("Il y a eu une erreur lors de la récupération de l'utilisateur", e.response.data);
+                    showErrorMessage("Il y a eu une erreur lors de la récupération du forum", e.response.data);
 
                     setUser(undefined);
                 }
@@ -69,7 +70,7 @@ const UserEditorPage = ({showErrorMessage, showSuccessMessage}) => {
     }
 
     // Si l'utilisateur n'est pas défini ça veut dire qu'il n'existe pas et donc on veut revenir à la page des utilisateurs
-    if (user === undefined) {
+    if (forum === undefined) {
         router.replace("/forums");
         return null;
     }
@@ -81,12 +82,12 @@ const UserEditorPage = ({showErrorMessage, showSuccessMessage}) => {
                     <Columns.Column className="right">
                         <GoBackUrlButton url={"/forums"}/>
                         <div className="has-text-centered">
-                            <Heading className="is-3">Gestion utilisateur</Heading>
-                            <p className="description">L'utilisateur actuel est {user.prenom} {user.nom}</p>
+                            <Heading className="is-3">Gestion du Forum</Heading>
+                            <p className="description">Le forum est {forum.title}</p>
                             <hr/>
                         </div>
                         <Section>
-                            <User user={user} setUser={setUser} showErrorMessage={showErrorMessage} showSuccessMessage={showSuccessMessage}/>
+                            <Forum forum={forum} setUser={setUser} showErrorMessage={showErrorMessage} showSuccessMessage={showSuccessMessage}/>
                         </Section>
                     </Columns.Column>
                 </Columns>
@@ -95,4 +96,4 @@ const UserEditorPage = ({showErrorMessage, showSuccessMessage}) => {
     );
 }
 
-export default ProtectedRoute(UserEditorPage, false);
+export default ProtectedRoute(ForumEditorPage, true);

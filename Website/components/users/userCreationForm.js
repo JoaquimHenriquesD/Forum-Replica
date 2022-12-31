@@ -3,13 +3,16 @@ import {useState} from "react";
 import sha256 from "crypto-js/sha256";
 import axios from "axios";
 
+
+
 /**
  * Le composant pour créer un utilisateur
+ * @param router
  * @param showErrorMessage Fonction pour montrer un message d'erreur
  * @param showSuccessMessage Fonction pour montrer un message de succès
  */
-export const UserCreationForm = ({showErrorMessage, showSuccessMessage}) => {
-
+export const UserCreationForm = ({showErrorMessage, showSuccessMessage,router}) => {
+   
     /**
      * Les données pour la création d'un compte utilisateur
      */
@@ -89,6 +92,7 @@ export const UserCreationForm = ({showErrorMessage, showSuccessMessage}) => {
             signUserUp(event);
         }
     }
+    
 
     return (
         <form>
@@ -118,12 +122,15 @@ export const UserCreationForm = ({showErrorMessage, showSuccessMessage}) => {
                                 value={newUserAccountData.passwordConfirmation} autoComplete="current-password"/>
                 </Form.Control>
             </Form.Field>
-
+          
+           
             <Form.Field>
-                <Form.Control>
-                    <Form.Checkbox name="isSuperUser" className="is-medium" onChange={updateField} value={newUserAccountData.isSuperUser}>Est-ce que l'utilisateur est un super user</Form.Checkbox>
-                </Form.Control>
-            </Form.Field>
+                    <Form.Control>
+                        <Form.Checkbox name="isSuperUser" className="is-medium" onChange={updateField} value={newUserAccountData.isSuperUser}>Est-ce que l'utilisateur est un super user</Form.Checkbox>
+                    </Form.Control>
+                </Form.Field>
+
+            
 
             <Heading className="is-4">Partie utilisateur</Heading>
 

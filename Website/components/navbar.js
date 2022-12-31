@@ -84,8 +84,14 @@ export const Navbar = ({router}) => {
                         {isUserLogged ?
                             <>
                             <BulmaNavbar.Item renderAs="span">
-                                <Link href="/forums" passHref>
+                                <Link href="/forumsUser" passHref>
                                     Forums
+                                </Link>
+                            </BulmaNavbar.Item>
+
+                            <BulmaNavbar.Item renderAs="span">
+                                <Link href="/newforum" passHref>
+                                    Creer un Forum !
                                 </Link>
                             </BulmaNavbar.Item>
 
@@ -107,13 +113,35 @@ export const Navbar = ({router}) => {
                                             <p style={{color: "#7a7a7a", letterSpacing: ".1em", textTransform: "uppercase"}}>Gestion utilisateurs</p>
                                         </BulmaNavbar.Item>
 
-                                        
-                                                             
                                         <BulmaNavbar.Item renderAs="span">
-                                            <Link href="/newuser" passHref>
-                                                Créer un utilisateur
-                                            </Link>
-                                        </BulmaNavbar.Item>
+                                                <Link href="/newuser" passHref>
+                                                    Créer un compte pour un ami !
+                                                </Link>
+                                            </BulmaNavbar.Item>
+
+                                        {isSuperUser ?
+                                            <>                   
+                                            <BulmaNavbar.Item renderAs="span">
+                                                <Link href="/newuser" passHref>
+                                                    Créer un utilisateur
+                                                </Link>
+                                            </BulmaNavbar.Item>
+
+                                        
+                                            <BulmaNavbar.Item renderAs="span">
+                                                <Link href="/forums" passHref>
+                                                   Gestions des forums
+                                                </Link>
+                                            </BulmaNavbar.Item>
+
+                                            <BulmaNavbar.Item renderAs="span">
+                                                <Link href="/users" passHref>
+                                                   Gestions des utilisateurs
+                                                </Link>
+                                            </BulmaNavbar.Item>
+
+                                        </> : null
+                                        }
                                     </BulmaNavbar.Dropdown>
                                 </BulmaNavbar.Item>
                             </> : null

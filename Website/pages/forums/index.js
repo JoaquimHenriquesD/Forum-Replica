@@ -63,4 +63,4 @@ const ForumsPage = ({showErrorMessage}) => {
     );
 }
 
-export default ProtectedRoute(ForumsPage,false);
+export default ProtectedRoute(ForumsPage,true);

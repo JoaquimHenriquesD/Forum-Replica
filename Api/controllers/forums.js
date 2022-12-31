@@ -90,7 +90,7 @@ async function updateForum(forumId, forumToUpdate) {
 
     // On demande à MongoDB de modifier les couples clefs/valeurs présents dans l'object userToUpdate de l'object qui a pour identifiant unique MongoDB 'userId'
     // Noter l'option {new: true} qui veut dire que MongoDB nous renverra l'object modifié et non l'object avant sa modification (car on veut renvoyer le user modifié à l'utilisateur)
-    const forumUpdated = await User.findByIdAndUpdate(forumId, forumToUpdate, {new: true});
+    const forumUpdated = await Forum.findByIdAndUpdate(forumId, forumToUpdate, {new: true});
 
     // Si l'utilisateur trouvé est null c'est qu'il n'existe pas dans la base de données
     if (forumUpdated === null) {

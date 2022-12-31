@@ -5,6 +5,7 @@ const {createForum, deleteForum, readAllForum, readForum, updateForum} = require
 
 const {getUserData, logInUser, signUpUser} = require("../controllers/accounts");
 const {isUserAuthenticated, checkUserNotAlreadyAuthenticated, isSuperUser, isUserAsking} = require("../middlewares");
+const { readAllCom } = require("../controllers/commentaires.js");
 
 // On crée le router de l'api
 const apiRouter = express.Router();
@@ -130,6 +131,61 @@ apiRouter.get('/lesforums', isUserAuthenticated, async (req, res) => {
         res.status(500).send(e.message);
     }
 });
+
+/**
+ * Récupère un forum par rapport à son id
+ * @middleware isUserAuthenticated: Seul un utilisateur connecté peut accéder à cet endpoint
+ */
+apiRouter.get('/forum/:forumId', isUserAuthenticated, async (req, res) => {
+
+    // On fait un try catch pour intercepter une potentielle erreur
+    try {
+        res.json(await readForum(req.params.forumId));
+    } catch (e) {
+        res.status(500).send(e.message);
+    }
+});
+apiRouter.get('/Com/:forumId', isUserAuthenticated, async (req, res) => {
+
+    // On fait un try catch pour intercepter une potentielle erreur
+    try {
+
+        res.json(await readAllCom(req.params.forumId));
+        
+    } catch (e) {
+        res.status(500).send(e.message);
+    }
+});
+/**
+ * Supprime un utilisateur par rapport à son id
+ * @middleware isUserAuthenticated: Seul un utilisateur connecté peut accéder à cet endpoint
+ * @middleware isSuperUser: Seul un super utilisateur a le droit d'accéder à cet endpoint
+ */
+apiRouter.delete('/forum/:forumId', isUserAuthenticated, isSuperUser, async (req, res) => {
+
+    // On fait un try catch pour intercepter une potentielle erreur
+    try {
+        res.json(await deleteForum(req.params.forumId));
+    } catch (e) {
+        res.status(500).send(e.message);
+    }
+});
+
+/**
+ * Modifie un utilisateur par rapport à son id et le contenu de la requête
+ * @middleware isUserAuthenticated: Seul un utilisateur connecté peut accéder à cet endpoint
+ * @middleware isUserAsking: Seul l'utilisateur connecté OU un super utilisateur a le droit d'accéder à cet endpoint
+ */
+apiRouter.put('/forum/:forumId', isUserAuthenticated, isUserAsking, async (req, res) => {
+
+    // On fait un try catch pour intercepter une potentielle erreur
+    try {
+        res.json(await updateForum(req.params.forumId, req.body));
+    } catch (e) {
+        res.status(500).send(e.message);
+    }
+});
+
 /**
  * La route pour que l'utilisateur se connecte
  */
@@ -214,6 +270,21 @@ apiRouter.post('/signup', isUserAuthenticated, isSuperUser, async (req, res) => 
     // On fait un try catch pour intercepter une potentielle erreur
     try {
         res.json(await signUpUser(req.body.email, req.body.password, req.body.isSuperUser, req.body.user));
+    } catch (e) {
+        res.status(500).send(e.message);
+    }
+});
+
+/**
+ * Permet de créer un compte utilisateur
+ * @middleware isUserAuthenticated: Seul un utilisateur connecté peut accéder à cet endpoint
+ * @middleware isSuperUser: Seul un super utilisateur a le droit d'accéder à cet endpoint
+ */
+apiRouter.post('/forumup', isUserAuthenticated,  async (req, res) => {
+
+    // On fait un try catch pour intercepter une potentielle erreur
+    try {
+        res.json(await createForum({"title":req.body.title, "texte":req.body.texte}));
     } catch (e) {
         res.status(500).send(e.message);
     }
