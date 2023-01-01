@@ -29,6 +29,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/fakeforum.js"
+    ],
+    "/forumsUser": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/forumsUser.js"
     ]
   },
   "ampFirstPages": []

@@ -105,6 +105,27 @@ mongoose.connect(`mongodb://${mongoDBHost}:27017/maBaseDeDonnee`, options, funct
     }).catch((error) => {
         console.error(`Il y a eu une erreur lors de la création du forumtest: ${error}`);
     });
+    const testforum2 = {
+        title: "Hey yo Porsche ou Mclaren ???",
+        texte: "Vous vous etes jamais demandé pourquoi les seules lettres en commun entre Mclaren et Porsche c'est le e et le c  ?",
+        user:"Un Passioné un peu trop hardcore"
+    }
+    createForum(testforum2).then((result) => {
+        console.log("Le forumtest a été créé: ", result);
+    }).catch((error) => {
+        console.error(`Il y a eu une erreur lors de la création du forumtest: ${error}`);
+    });
+
+    const testforum3 = {
+        title: "La Piraterie n'est jamais finie",
+        texte: "ma lamborghini a pris quelque dos d'ane",
+        user:"Le Duc de Boulogne"
+    }
+    createForum(testforum3).then((result) => {
+        console.log("Le forumtest a été créé: ", result);
+    }).catch((error) => {
+        console.error(`Il y a eu une erreur lors de la création du forumtest: ${error}`);
+    });
 /** 
     const testCom = {
         texte: "testCom",
