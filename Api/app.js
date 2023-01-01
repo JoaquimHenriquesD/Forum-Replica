@@ -96,8 +96,9 @@ mongoose.connect(`mongodb://${mongoDBHost}:27017/maBaseDeDonnee`, options, funct
 
 
     const testforum = {
-        title: "testforum",
-        texte: "ouiouibaguette"
+        title: "L'eau ça mouille",
+        texte: "Vous avez jamais remarqué ? je connais un truc un peu pareil avec le feu",
+        user:"Un Génie"
     }
     createForum(testforum).then((result) => {
         console.log("Le forumtest a été créé: ", result);

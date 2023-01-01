@@ -284,7 +284,7 @@ apiRouter.post('/forumup', isUserAuthenticated,  async (req, res) => {
 
     // On fait un try catch pour intercepter une potentielle erreur
     try {
-        res.json(await createForum({"title":req.body.title, "texte":req.body.texte}));
+        res.json(await createForum({"user":req.body.user,"title":req.body.title, "texte":req.body.texte}));
     } catch (e) {
         res.status(500).send(e.message);
     }

@@ -14,7 +14,8 @@ export const ForumCreationForm = ({showErrorMessage, showSuccessMessage}) => {
      */
     const [newForumData, setNewForumData] = useState({
         title: "",
-        texte: ""
+        texte: "",
+        user:""
     })
 
     /**
@@ -49,7 +50,8 @@ export const ForumCreationForm = ({showErrorMessage, showSuccessMessage}) => {
         try {
             const response = await axios.post('/api/forumup', {
                 title: newForumData.title,
-                texte: newForumData.texte
+                texte: newForumData.texte,
+                user: newForumData.user
             });
 
             // Comme on est arrivé là, c'est que la création a fonctionné et on peut donc loe dire à l'utilisateur
@@ -78,7 +80,13 @@ export const ForumCreationForm = ({showErrorMessage, showSuccessMessage}) => {
         <form>
 
             <Heading className="is-4">Allez y !</Heading>
-
+            <Form.Field>
+                <Form.Control>
+                    <Form.Input name="user" className="is-medium" type="text"
+                                placeholder="Qui etes vous ?" onKeyDown={handleKeyDown} onChange={updateField}
+                                value={newForumData.user} />
+                </Form.Control>
+            </Form.Field>
             <Form.Field>
                 <Form.Control>
                     <Form.Input name="title" className="is-medium" type="text"

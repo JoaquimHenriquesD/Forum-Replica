@@ -25,25 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/forumsUser": [
+    "/fakeforum": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/forumsUser.js"
-    ],
-    "/forumsUser/[forumId]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/forumsUser/[forumId].js"
-    ],
-    "/newforum": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/newforum.js"
-    ],
-    "/newuser": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/newuser.js"
+      "static/chunks/pages/fakeforum.js"
     ]
   },
   "ampFirstPages": []

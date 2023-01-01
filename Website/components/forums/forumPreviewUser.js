@@ -7,7 +7,7 @@ export const ForumPreviewUser = ({forum}) => {
         <Link href={`/forumsUser/${forum._id}`}>
             <Card style={{cursor: "pointer", marginBottom: "0.5rem"}}>
                 <Card.Content>
-                    <Heading className="is-4"> {forum.title}, {forum.texte} . <p>Crée {moment(forum.createdAt).from()}</p></Heading>
+                    <Heading className="is-4"><p> <span class="username">{forum.user}</span></p> <p><h1 class="titleforum"> {forum.title}</h1></p> <p class="texteforum"> {forum.texte}</p> <p class="date">Crée {moment(forum.createdAt).from()}</p></Heading>
                 </Card.Content>
             </Card>
         </Link>

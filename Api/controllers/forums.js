@@ -9,9 +9,8 @@ const {Forum} = require("../models/index.js");
 async function createForum(forum) {
 
     // On regarde déjà si tous les champs de l'utilisateur sont présents
-    const neededKeys = ["title", "texte"];
+    const neededKeys = ["user","title", "texte"];
     const keysNotGiven = getKeysNotProvided(neededKeys, forum);
-
     // Si une ou plusieurs clefs ne sont pas données alors on renvoie un message d'erreur
     if (keysNotGiven.length !== 0) {
         throw new Error(`Les informations suivantes ne sont pas fournies ou vides: '${keysNotGiven.join(', ')}'`);
@@ -30,7 +29,7 @@ async function createForum(forum) {
 
         // S'il y a une erreur lors du processus alors on renvoie un message d'erreur
     catch (e) {
-        throw new Error("Une erreur s'est produite lors de la création de l'utilisateur");
+        throw new Error("Une erreur s'est produite lors de la création du forum dans controllers/forums");
     }
 }
 

@@ -7,7 +7,7 @@ export const ComPreview = ({com}) => {
         
             <Card style={{cursor: "pointer", marginBottom: "0.5rem"}}>
                 <Card.Content>
-                    <Heading className="is-4"> {com.texte}  <p>Crée {moment(com.createdAt).from()}</p></Heading>
+                    <Heading className="is-4"> <p class="messagetexte">{com.texte}</p>  <p class="date">Crée {moment(com.createdAt).from()}</p></Heading>
                 </Card.Content>
             </Card>
     

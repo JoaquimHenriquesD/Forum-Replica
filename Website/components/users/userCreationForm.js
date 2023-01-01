@@ -122,13 +122,6 @@ export const UserCreationForm = ({showErrorMessage, showSuccessMessage,router}) 
                                 value={newUserAccountData.passwordConfirmation} autoComplete="current-password"/>
                 </Form.Control>
             </Form.Field>
-          
-           
-            <Form.Field>
-                    <Form.Control>
-                        <Form.Checkbox name="isSuperUser" className="is-medium" onChange={updateField} value={newUserAccountData.isSuperUser}>Est-ce que l'utilisateur est un super user</Form.Checkbox>
-                    </Form.Control>
-                </Form.Field>
 
             
 

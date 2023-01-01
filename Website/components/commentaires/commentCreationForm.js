@@ -54,6 +54,7 @@ export const ComCreationForm = ({showErrorMessage, showSuccessMessage,postId}) =
 
             // Comme on est arrivé là, c'est que la création a fonctionné et on peut donc loe dire à l'utilisateur
             showSuccessMessage("Le commentaire a été créé avec succès.");
+            
         }
 
             // Si on attrape une erreur alors on montre un message d'erreur

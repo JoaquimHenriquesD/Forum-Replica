@@ -6,15 +6,17 @@ const IndexPage = () => {
     return (
         <PageWrapper>
             <Columns.Column className="is-8 is-offset-2 tp-notification">
-                <Heading className="is-3">Page d'accueil</Heading>
-                <p className="description">La page d'accueil du Frontend du TP2-1</p>
+                <div class="centre">
+                <Heading className="is-3">Hey yo tu veux rejoindre le forum des fans de voiture ?</Heading></div>
+                <div class="center"><p class="titleforum" className="description">Impossible</p></div>
                 <hr/>
-                <p>Dans un premier temps vous devez vous connecter avec ces identifiants:</p>
+                <div class="center"><p>Il faut se faire creer un compte par quelqu'un qui possede deja un compte !</p>
                 <br/>
-                <p><code>Email: admin</code></p>
-                <p><code>Mot de passe: admin</code></p>
+                
+                <div class="voiture"></div>
+                
                 <br/>
-                <p>Puis faites ce que vous voulez sur le frontend !</p>
+                <p>Aurevoir !</p></div>
             </Columns.Column>
         </PageWrapper>
     )

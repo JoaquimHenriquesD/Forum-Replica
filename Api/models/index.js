@@ -102,10 +102,10 @@ const ForumSchema = new Schema(
          * Utilisé pour faire des .populate pour avoir la donnée de l'utilisateur dans la variable user, on veut faire une référence vers un schema user qui aura juste son identifiant unique MongoDB
          */
         user: {
-            type: Schema.Types.ObjectId,
-            ref: "user"
+            type: Schema.Types.String,
+            required: true
         },
-
+        
         title: {
             type: Schema.Types.String,
             required: true

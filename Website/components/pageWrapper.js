@@ -8,7 +8,7 @@ export const PageWrapper = ({children}) => {
     return (
         <Section>
             <Container>
-                <Columns className="is-multiline">
+                <Columns className="is-multiline" class="pageall">
                     {children}
                 </Columns>
             </Container>

@@ -100,8 +100,8 @@ const PagedeForum = ({showErrorMessage, showSuccessMessage}) => {
                     <Columns.Column className="right">
                         <GoBackUrlButton url={"/forumsUser"}/>
                         <div className="has-text-centered">
-                            <Heading className="is-3">{forum.title}</Heading>
-                            <p>{forum.texte}</p>
+                            <Heading className="is-3" class="titleforumb">{forum.title}</Heading>
+                            <p class="texteforumb">{forum.texte}</p>
                             <hr/>
                         </div>
                         <Section>

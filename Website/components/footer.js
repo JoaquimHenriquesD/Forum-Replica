@@ -10,7 +10,8 @@ export const Footer = () => {
                 <Level>
                     <Level.Item>
                         <small className="level-item">
-                            Le footer du TP2-1 &copy; 2022
+                            <div class="imagemclarenlogo"></div>
+                         
                         </small>
                     </Level.Item>
                 </Level>

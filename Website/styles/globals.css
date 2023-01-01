@@ -15,6 +15,71 @@ a {
     box-sizing: border-box;
 }
 
+
+/*forum et comment*/
+.username{color: aliceblue;
+font-size: medium;}
+.titleforum{color: red;
+font-size: larger;}
+.texteforum{font-size: medium;}
+
+.titleforumb{color: red;
+font-size: xx-large;}
+.texteforumb{font-size: x-large;}
+    
+.date{font-size: small;}
+
+.messagetexte{font-size: medium;
+color: bisque;}
+
+
+/* page principales*/
+.casetitre{display: flex;
+    flex-direction: column;
+justify-content: center;
+align-items: center;}
+
+.grandtitre{font-size: xx-large;
+color: orange;}
+
+.imagemclarenlogo{background-image: url("Mclarenlogogif.gif");
+width:200px;
+height: 200px;}
+.logodaewoo{background-image: url("Daewoo.png");
+    background-size:contain ;
+    background-repeat: no-repeat;
+height: 100px;
+width: 200px ;}
+
+/*page test*/
+.imgdrift{
+    background-image: url("drift.gif");
+    width: 640px;;
+    height: 426px;}
+
+    /*page acceuil*/
+
+.voiture{background-image: url("tk78-en-voiture.gif");
+    width: 220px;;
+    height: 123px;}
+
+.centre{display: flex;
+    justify-content: center;
+    align-items:center ;
+flex-direction: column;}
+.center{display: flex;
+justify-content: center;
+align-items:center ;
+color: red;
+font-size: x-large;
+flex-direction: column;}
+
+
+
+
+
+
+
 @media (prefers-color-scheme: dark) {
     html {
         color-scheme: dark;
@@ -22,14 +87,14 @@ a {
 
     body {
         color: white;
-        background: black;
+        background: rgb(0, 0, 0);
     }
 }
 
 :root {
     --brandColor: hsl(166, 67%, 51%);
-    --background: rgb(100, 0, 131);
-    --textDark: hsla(0, 0%, 0%, 0.66);
+    --background: rgb(0, 0, 0);
+    --textDark: hsl(32, 100%, 50%);
 }
 
 body, .mainContent {

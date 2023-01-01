@@ -76,8 +76,8 @@ export const Navbar = ({router}) => {
                         </BulmaNavbar.Item>
 
                         <BulmaNavbar.Item renderAs="span">
-                            <Link href="/test" passHref>
-                                Page test
+                            <Link href="/fakeforum" passHref>
+                                Fake Forum
                             </Link>
                         </BulmaNavbar.Item>
 
