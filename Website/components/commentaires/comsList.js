@@ -8,8 +8,8 @@ import {ComPreview} from "./comPreview";
 export const ComsList = ({Coms}) => {
     return (
         <Panel>
-            
-            {Coms?.map((com) => <ComPreview key={com._id} com={com}/>)}
+            {/* On veut montrer la liste des coms avec un composant <ComPreview/> */}
+            {Coms.map((com) => <ComPreview key={com._id} com={com}/>)}
         </Panel>
     );
 }

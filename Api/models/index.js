@@ -137,31 +137,36 @@ const ForumSchema = new Schema(
         }
     });
 
-    /**
+ /**
  * Ce schema sera utilisé pour stocker les comptes d'utilisateurs
  * @schema : Com
  */
 const ComSchema = new Schema(
     {
-    
+        /**
+         * la référence de l'utilisateur
+         * Utilisé pour faire des .populate pour avoir la donnée de l'utilisateur dans la variable user, on veut faire une référence vers un schema user qui aura juste son identifiant unique MongoDB
+         */
+   
+
+        texte: {
+            type: Schema.Types.String,
+            required: true
+        },
+
+        post: {
+            type: Schema.Types.String,
+            required: true
+        },
         /**
          * Quand le compte a été crée
          */
         createdAt: {
             type: Date,
             default: Date.now
-        },
-
-        post: {
-            type: Schema.Types.ObjectId,
-            ref: "forum"
-        },
-        texte: {
-            type: Schema.Types.String,
-            required: true
-        },
-
+        }
     });
+
 
 
 // On exporte le model

@@ -9,7 +9,7 @@ const {Com} = require("../models/index.js");
 async function createCom(comment) {
 
     // On regarde déjà si tous les champs de l'utilisateur sont présents
-    const neededKeys = ["post", "texte"];
+    const neededKeys = ["texte", "post"];
     const keysNotGiven = getKeysNotProvided(neededKeys, comment);
 
     // Si une ou plusieurs clefs ne sont pas données alors on renvoie un message d'erreur
@@ -22,10 +22,11 @@ async function createCom(comment) {
 
         // On crée un utilisateur avec le model de MongoDB et les informations de l'utilisateur
         const comToCreate = new Com(comment);
-
+        
         // Puis on le sauvegarde en n'oubliant pas le mot clef await qui va nous permettre d'attendre que l'utilisateur
         // soit sauvegarder pour nous le renvoyer
         return await comToCreate.save();
+        
     }
 
         // S'il y a une erreur lors du processus alors on renvoie un message d'erreur

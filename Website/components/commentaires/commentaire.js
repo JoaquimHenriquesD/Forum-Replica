@@ -38,6 +38,7 @@ export const commentaire = ({forum, setUser, showSuccessMessage, showErrorMessag
         });
     }
 
+
     /**
      * Quand l'utilisateur veut supprimer un utilisateur
      * @param event L'événement

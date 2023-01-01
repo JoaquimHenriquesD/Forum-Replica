@@ -4,7 +4,7 @@ import {CustomPuffLoader} from "../../components/customPuffLoader";
 import {useEffect, useState} from "react";
 import {GoBackUrlButton} from "../../components/goBackUrlButton";
 import {useRouter} from "next/router";
-import {Forum} from "../../components/forums/forum";
+import {ComCreationForm} from "../../components/commentaires/commentCreationForm";
 import {ComsList} from "../../components/commentaires/comsList";
 
 import axios from "axios";
@@ -105,8 +105,10 @@ const PagedeForum = ({showErrorMessage, showSuccessMessage}) => {
                             <hr/>
                         </div>
                         <Section>
-                            <ComsList commentaire={commentaire}/>
-
+                            <ComsList Coms={commentaire}/>
+                        </Section>
+                        <Section>
+                            <ComCreationForm postId={forumId} showErrorMessage={showErrorMessage} showSuccessMessage={showSuccessMessage}/>
                         </Section>
                     </Columns.Column>
                 </Columns>

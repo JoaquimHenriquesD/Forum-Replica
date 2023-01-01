@@ -5,7 +5,7 @@ const {createForum, deleteForum, readAllForum, readForum, updateForum} = require
 
 const {getUserData, logInUser, signUpUser} = require("../controllers/accounts");
 const {isUserAuthenticated, checkUserNotAlreadyAuthenticated, isSuperUser, isUserAsking} = require("../middlewares");
-const { readAllCom } = require("../controllers/commentaires.js");
+const {createCom,readAllCom} = require("../controllers/commentaires.js");
 
 // On crée le router de l'api
 const apiRouter = express.Router();
@@ -290,5 +290,19 @@ apiRouter.post('/forumup', isUserAuthenticated,  async (req, res) => {
     }
 });
 
+/**
+ * Permet de créer un compte utilisateur
+ * @middleware isUserAuthenticated: Seul un utilisateur connecté peut accéder à cet endpoint
+ * @middleware isSuperUser: Seul un super utilisateur a le droit d'accéder à cet endpoint
+ */
+apiRouter.post('/comup', isUserAuthenticated,  async (req, res) => {
+
+    // On fait un try catch pour intercepter une potentielle erreur
+    try {
+        res.json(await createCom({"texte":req.body.texte, "post":req.body.post}));
+    } catch (e) {
+        res.status(500).send(e.message);
+    }
+});
 // On exporte seulement le router
 module.exports = apiRouter;
