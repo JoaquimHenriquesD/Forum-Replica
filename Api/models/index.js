@@ -118,7 +118,7 @@ const ForumSchema = new Schema(
 
         lastUpdate: {
             type: Date,
-            default: Date.now
+    
         },
 
         nbrCom: {

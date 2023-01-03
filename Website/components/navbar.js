@@ -71,13 +71,13 @@ export const Navbar = ({router}) => {
                     <BulmaNavbar.Container>
                         <BulmaNavbar.Item renderAs="span">
                             <Link href="/" passHref>
-                                Home
+                                <span class="navbarsvp">Home</span>
                             </Link>
                         </BulmaNavbar.Item>
 
                         <BulmaNavbar.Item renderAs="span">
                             <Link href="/fakeforum" passHref>
-                                Fake Forum
+                            <span class="navbarsvp">Fake Forum</span>
                             </Link>
                         </BulmaNavbar.Item>
 
@@ -85,13 +85,13 @@ export const Navbar = ({router}) => {
                             <>
                             <BulmaNavbar.Item renderAs="span">
                                 <Link href="/forumsUser" passHref>
-                                    Forums
+                                <span class="navbarsvp">Forums</span>
                                 </Link>
                             </BulmaNavbar.Item>
 
                             <BulmaNavbar.Item renderAs="span">
                                 <Link href="/newforum" passHref>
-                                    Creer un Forum !
+                                <span class="navbarsvp">Creer un Forum !</span>
                                 </Link>
                             </BulmaNavbar.Item>
 
@@ -106,7 +106,7 @@ export const Navbar = ({router}) => {
                             <>
                                 <BulmaNavbar.Item renderAs="a" className="has-dropdown is-hoverable">
                                     <BulmaNavbar.Link>
-                                        Gestion administrateur
+                                    <span class="navbarsvp">Gestion administrateur</span>
                                     </BulmaNavbar.Link>
                                     <BulmaNavbar.Dropdown>
                                         <BulmaNavbar.Item>
@@ -115,7 +115,7 @@ export const Navbar = ({router}) => {
 
                                         <BulmaNavbar.Item renderAs="span">
                                                 <Link href="/newuser" passHref>
-                                                    Créer un compte pour un ami !
+                                                <span class="navbarsvp">Créer un compte pour un ami !</span>
                                                 </Link>
                                             </BulmaNavbar.Item>
 
@@ -123,20 +123,20 @@ export const Navbar = ({router}) => {
                                             <>                   
                                             <BulmaNavbar.Item renderAs="span">
                                                 <Link href="/newuser" passHref>
-                                                    Créer un utilisateur
+                                                <span class="navbarsvp">Créer un utilisateur</span>
                                                 </Link>
                                             </BulmaNavbar.Item>
 
                                         
                                             <BulmaNavbar.Item renderAs="span">
                                                 <Link href="/forums" passHref>
-                                                   Gestions des forums
+                                                <span class="navbarsvp">Gestions des forums</span>
                                                 </Link>
                                             </BulmaNavbar.Item>
 
                                             <BulmaNavbar.Item renderAs="span">
                                                 <Link href="/users" passHref>
-                                                   Gestions des utilisateurs
+                                                <span class="navbarsvp">Gestions des utilisateurs</span>
                                                 </Link>
                                             </BulmaNavbar.Item>
 
@@ -153,14 +153,14 @@ export const Navbar = ({router}) => {
                                     <BulmaNavbar.Link>
                                         <BulmaNavbar.Item renderAs="span">
                                             <Link href="/account" passHref>
-                                                Compte utilisateur
+                                            <span class="navbarsvp">Compte utilisateur</span>
                                             </Link>
                                         </BulmaNavbar.Item>
                                     </BulmaNavbar.Link>
                                     <BulmaNavbar.Dropdown>
                                         <BulmaNavbar.Item renderAs="span">
                                             <Link href="/logout" passHref>
-                                                Déconnexion
+                                            <span class="navbarsvp">Déconnexion</span>
                                             </Link>
                                         </BulmaNavbar.Item>
                                     </BulmaNavbar.Dropdown>
@@ -169,7 +169,7 @@ export const Navbar = ({router}) => {
                             :
                             <BulmaNavbar.Item renderAs="span">
                                 <Link href="/login" passHref>
-                                    Connexion
+                                <span class="navbarsvp">Connexion</span>
                                 </Link>
                             </BulmaNavbar.Item>
                         }

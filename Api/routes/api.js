@@ -1,7 +1,7 @@
 const express = require("express");
 const {printSession} = require("../middlewares/index.js");
 const {createUser, deleteUser, readAllUsers, readUser, updateUser} = require("../controllers/users.js");
-const {createForum, deleteForum, readAllForum, readForum, updateForum} = require("../controllers/forums.js");
+const {createForum, deleteForum, readAllForum, readForum, updateForum,UpdateTimeForum} = require("../controllers/forums.js");
 
 const {getUserData, logInUser, signUpUser} = require("../controllers/accounts");
 const {isUserAuthenticated, checkUserNotAlreadyAuthenticated, isSuperUser, isUserAsking} = require("../middlewares");
@@ -303,6 +303,7 @@ apiRouter.post('/comup', isUserAuthenticated,  async (req, res) => {
     } catch (e) {
         res.status(500).send(e.message);
     }
+    
 });
 // On exporte seulement le router
 module.exports = apiRouter;

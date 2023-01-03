@@ -107,7 +107,7 @@ export const LoginForm = ({showErrorMessage, showInfoMessage}) => {
 
             <Button onClick={logUserIn} className="is-block is-primary is-fullwidth is-medium">Se connecter</Button>
             <br/>
-            <small><em>Vous vous n'avez pas de compte, demandez à l'administrateur ;)</em></small>
+            <small><div class="centre"><div class="image3"></div></div></small>
         </form>
     )
 }

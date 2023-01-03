@@ -1,5 +1,6 @@
 const {getKeysNotProvided, isObjectIdStringValid} = require("../utils.js");
 const {Forum} = require("../models/index.js");
+const { now } = require("mongoose");
 
 /**
  * Créer un utilisateur
@@ -99,7 +100,23 @@ async function updateForum(forumId, forumToUpdate) {
     // Sinon c'est qu'il existe et on le renvoie
     return forumUpdated;
 }
-
+/**
+ * Supprime un utilisateur
+ * @param forumId L'identifiant de l'utilisateur à supprimer
+ * @returns L'utilisateur qui vient d'être supprimé
+ */
+async function UpdateTimeForum(forumId){
+    if (forumId === undefined || !isObjectIdStringValid(forumId)) {
+        throw new Error("L'id du forum n'existe pas ou n'est pas un id MongoDB");
+    }
+    const forumToTimeUpdate = await Forum.findById(forumId)
+    if (forumToTimeUpdate === null) {
+        throw new Error("Le forum n'existe pas et n'a donc pas pû être modifié");
+    }
+    forumToTimeUpdate.lastUpdate==Date.now;
+    console.log(forumToTimeUpdate)
+    return forumToTimeUpdate;
+}
 
 /**
  * Supprime un utilisateur
@@ -148,5 +165,8 @@ module.exports = {
     readForum: readForum,
     updateForum: updateForum,
     deleteForum: deleteForum,
-    readAllForum: readAllForum
+    readAllForum: readAllForum,
+UpdateTimeForum:UpdateTimeForum
+
+    
 }

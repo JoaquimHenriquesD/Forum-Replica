@@ -13,6 +13,7 @@ const IndexPage = () => {
                 <div class="center"><p>Il faut se faire creer un compte par quelqu'un qui possede deja un compte !</p>
                 <br/>
                 
+                
                 <div class="voiture"></div>
                 
                 <br/>

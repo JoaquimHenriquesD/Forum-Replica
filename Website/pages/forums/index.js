@@ -52,8 +52,10 @@ const ForumsPage = ({showErrorMessage}) => {
             <Columns.Column className="is-8 is-offset-2 tp-notification">
                 <Columns>
                     <Columns.Column className="right">
-                        <Heading className="is-3">Liste des Forums</Heading>
-                        <Heading className="subtitle">Clicker dessus pour y accéder</Heading>
+                    <div class="centre">
+                        <Heading className="is-3" class="grandtitre">Liste des Forums</Heading>
+                        <Heading className="subtitle">Clicker dessus pour les supprimer ou les mettre a jour</Heading>
+                        </div>
                         <hr/>
                         <ForumsList forums={forums}/>
                     </Columns.Column>

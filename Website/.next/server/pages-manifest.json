@@ -2,6 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/": "pages/index.js",
   "/fakeforum": "pages/fakeforum.js",
-  "/forumsUser": "pages/forumsUser.js"
+  "/login": "pages/login.js",
+  "/forumsUser": "pages/forumsUser.js",
+  "/account": "pages/account.js",
+  "/forumsUser/[forumId]": "pages/forumsUser/[forumId].js"
 }

@@ -75,9 +75,16 @@ font-size: x-large;
 flex-direction: column;}
 
 
+.liste{display: flex;
+justify-content: space-between;}
+.gfnavbarsvp{color:orange;
+font-size: large;}
 
-
-
+.image3{background-image: url("toyota.gif");
+    width: 200px;;
+    height: 200px;
+background-size: contain;
+background-repeat: no-repeat;}
 
 
 @media (prefers-color-scheme: dark) {
